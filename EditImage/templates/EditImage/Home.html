@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>Seleccionar Imagen</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href={%  static  'EditImage/css/style.css'  %}>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src={% static 'EditImage/js/scriptEditar.js' %}></script>
+    </head>  
+    <body>
+        <div id='contenido'>
+            <header><h1>Editar Imagenes</h1></header>
+            <canvas id='miCanvas'></canvas>
+            <div id='botones'>
+                <button id='btnBN'>Convertir a blanco y Negro</button>
+                <button id='btnSV'> Guardar Imagen</button>
+            </div>
+            <div class="change">
+                <label>Escala de Grises</label><input type="range" id="grayscale" value="0">
+            </div>
+        </div>
+        <div id="canvasImg">
+            <img src="" id="canvasImgInsite"/>
+            <div id="controlesImagen">
+                <h2 style="color:#FFF">Hax click derecho sobre la imagen para guardarla</h2>
+                <button id="cerrarVentana">Cerrar Ventana</button>
+            </div>
+        </div>
+    </body>
+</html>
