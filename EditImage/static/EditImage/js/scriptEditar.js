@@ -23,7 +23,7 @@ function aBlancoyNegro(ctx,canvas){
     var pixels = datosImagen.data;
     for (var i=0; i<pixels.lenght; i+=4){
         //calcula la luminosidad percibida para este pixel
-        var luminosidad = 0.34 * pixels.data[i] + 0.5 * pixels.data[i+1] + 0.16 * pixels.data[i+2]
+        var luminosidad = 0.34 * pixels[i] + 0.5 * pixels[i+1] + 0.16 * pixels[i+2]
         pixels[i] = luminosidad; // rojo
         pixels[i + 1] = luminosidad; // verde
         pixels[i + 2]= luminosidad; // azul
