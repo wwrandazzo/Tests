@@ -18,21 +18,17 @@ $(document).on("ready",function(){
         };
     });
 function aBlancoyNegro(ctx,canvas){
-    alert("has presionado el boton BN");
-    var datosImagen = ctx.getImageData(0,0,imgWidth/2,imgHeight/2);
-    var pixels = datosImagen.data;
-    for (var i=0; i<pixels.lenght; i+=4){
-        //calcula la luminosidad percibida para este pixel
-        var luminosidad = 0.34 * pixels[i] + 0.5 * pixels[i+1] + 0.16 * pixels[i+2]
-        pixels[i] = luminosidad; // rojo
-        pixels[i + 1] = luminosidad; // verde
-        pixels[i + 2]= luminosidad; // azul
-        //datosImagen.data[i] = luminosidad; // rojo
-        //datosImagen.data[i + 1] = luminosidad; // verde
-        //datosImagen.data[i + 2]= luminosidad; // azul
-        //datosImagen.data[i] = 255 - pidatosImagen.data[i];
-        //datosImagen.data[i+1] = 255 - datosImagen.data[i+1];
-        //datosImagen.data[i+2] = 255 - datosImagen.data[i+2];
-        }
-    ctx.putImageData(datosImagen,50,0);
-}
+    var data = ctx.getImageData(0,0,imgWidth/2,imgHeight/2);
+    for (var index = 0; index < data.data.length; index+=4) {
+        var rojo = data.data[index];
+        var verde = data.data[index + 1];
+        var azul = data.data[index+ 2];
+        var valor = (rojo + verde + azul) / 3;
+  
+        data.data[index] = valor;
+        data.data[index + 1] = valor;
+        data.data[index + 2] = valor;
+      }
+  
+      ctx.putImageData(data, 0, 0);
+    }
